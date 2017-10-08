@@ -23,7 +23,7 @@ class App extends Component {
     super(props);
 
     const { cookies } = this.props;
-    fakeAuth.userToken = cookies.get('userToken')
+    fakeAuth.userToken = cookies.get('userToken');
   }
 
   render () {
@@ -41,7 +41,7 @@ class App extends Component {
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={props => (
-    fakeAuth.isAuthenticated ? (
+    fakeAuth.isAuthenticated() ? (
       <Component {...props}/>
     ) : (
       <Redirect to={{
