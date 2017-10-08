@@ -9,7 +9,6 @@ import {
 import { instanceOf } from 'prop-types';
 import { withCookies, Cookies } from 'react-cookie';
 import auth from './auth';
-import AuthButton from './AuthButton';
 
 class Login extends Component {
   static propTypes = {
@@ -48,7 +47,6 @@ class Login extends Component {
 
     return (
       <div>
-        <AuthButton/>
         <p>You must log in to view the page at {from.pathname}</p>
         <form onSubmit={this.onSubmit}>
           <label>Email</label>

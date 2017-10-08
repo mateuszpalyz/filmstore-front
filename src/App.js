@@ -10,7 +10,7 @@ import { instanceOf } from 'prop-types';
 import { withCookies, Cookies, CookiesProvider } from 'react-cookie';
 import Login from './Login';
 import auth from './auth';
-import AuthButton from './AuthButton';
+import LogoutButton from './LogoutButton';
 import './App.css';
 
 class App extends Component {
@@ -52,6 +52,6 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 )
 
 const Public = () => <h3>Public</h3>
-const Protected = () => <div><AuthButton/><h3>Protected</h3></div>
+const Protected = () => <div><LogoutButton/><h3>Protected</h3></div>
 
 export default withCookies(App);

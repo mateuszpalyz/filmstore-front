@@ -16,9 +16,9 @@ const auth = {
     })
     .catch((e) => { console.log(e); });
   },
-  signout(cb) {
+  signout(callback) {
     this.userToken = null
-    setTimeout(cb, 100)
+    callback();
   }
 }
 
