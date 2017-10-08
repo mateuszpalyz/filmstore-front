@@ -56,7 +56,7 @@ class Login extends Component {
           />
           <label>Password</label>
           <input
-            type="text"
+            type="password"
             ref={ node => { this.password_input = node; }}
           />
           <button type="submit">Login</button>
