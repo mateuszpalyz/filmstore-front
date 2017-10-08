@@ -1,28 +1,30 @@
-.App {
-  text-align: center;
-}
+.form-wrapper {
+  height: 100vh;
+  background: url("images/bg.jpg"); }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
+.form-container {
+  max-width: 500px;
+  width: 80%;
+  border-color: #FB9262;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+  .form-container .heading-palette-2 {
+    background-color: #FB9262;
+    border-color: #FB9262;
+    color: #fff;
+    font-size: 22px;
+    font-weight: lighter; }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
+.form-body {
+  padding: 25px 15px; }
 
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+.btn-palette-1 {
+  background-color: #65CC76;
+  border-color: #65CC76;
+  color: #fff; }
+  .btn-palette-1:hover, .btn-palette-1:focus, .btn-palette-1:active {
+    background-color: #249F39;
+    border-color: #249F39;
+    color: #fff; }

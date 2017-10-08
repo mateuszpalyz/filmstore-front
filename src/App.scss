@@ -1,0 +1,42 @@
+@import 'stylesheets/variables.scss';
+
+.form-wrapper {
+  height: 100vh;
+  background: url('images/bg.jpg');
+}
+
+.form-container {
+  max-width: 500px;
+  width: 80%;
+  border-color: #FB9262;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  .heading-palette-2 {
+    background-color: #FB9262;
+    border-color: #FB9262;
+    color: $color-white;
+    font-size: 22px;
+    font-weight: lighter;
+  }
+}
+
+.form-body {
+  padding: 25px 15px;
+}
+
+.btn-palette-1 {
+  background-color: $color-palette1;
+  border-color: $color-palette1;
+  color: $color-white;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $color-palette1-darker;
+    border-color: $color-palette1-darker;
+    color: $color-white;
+  }
+}

@@ -46,21 +46,31 @@ class Login extends Component {
     if (redirectToReferrer) { return <Redirect to={from} /> }
 
     return (
-      <div>
-        <p>You must log in to view the page at {from.pathname}</p>
-        <form onSubmit={this.onSubmit}>
-          <label>Email</label>
-          <input
-            type="text"
-            ref={ node => { this.email_input = node; }}
-          />
-          <label>Password</label>
-          <input
-            type="password"
-            ref={ node => { this.password_input = node; }}
-          />
-          <button type="submit">Login</button>
-        </form>
+      <div className="form-wrapper">
+        <div className="panel panel-default form-container">
+          <div className="panel-heading heading-palette-2">FilmStore</div>
+          <div className="panel-body form-body">
+            <form onSubmit={this.onSubmit}>
+              <div className="form-group">
+                <input
+                  className="form-control"
+                  type="text"
+                  placeholder="Email"
+                  ref={ node => { this.email_input = node; }}
+                />
+              </div>
+              <div className="form-group">
+                <input
+                  className="form-control"
+                  type="password"
+                  placeholder="Password"
+                  ref={ node => { this.password_input = node; }}
+                />
+              </div>
+              <button type="submit" className="btn btn-palette-1 pull-right">Login</button>
+            </form>
+          </div>
+        </div>
       </div>
     )
   }
