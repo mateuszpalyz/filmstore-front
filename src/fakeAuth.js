@@ -1,11 +1,12 @@
 const fakeAuth = {
-  isAuthenticated: false,
+  isAuthenticated: () => !!this.userToken,
+  userToken: null,
   authenticate(cb) {
-    this.isAuthenticated = true
+    this.userToken = 'fjdsfjshdgfjshfj'
     setTimeout(cb, 100) // fake async
   },
   signout(cb) {
-    this.isAuthenticated = false
+    this.userToken = null
     setTimeout(cb, 100)
   }
 }
