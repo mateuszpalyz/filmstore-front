@@ -20,6 +20,15 @@
 .form-body {
   padding: 25px 15px; }
 
+.nav-palette-2 {
+  background-color: #FB9262;
+  border-color: #FB9262;
+  border-radius: 0; }
+  .nav-palette-2 .nav-brand-palette-2 {
+    color: #fff;
+    font-size: 22px;
+    font-weight: lighter; }
+
 .btn-palette-1 {
   background-color: #65CC76;
   border-color: #65CC76;

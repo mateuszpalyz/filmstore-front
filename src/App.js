@@ -23,12 +23,14 @@ class App extends Component {
 
     const { cookies } = this.props;
     auth.userToken = cookies.get('userToken');
+    auth.userEmail = cookies.get('userEmail');
   }
 
   render () {
     return (
       <Router>
         <div>
+          { auth.isAuthenticated() ? <Navbar /> : '' }
           <PrivateRoute exact path="/" component={Protected} />
           <Route path="/public" component={Public} />
           <Route path="/login" component={Login} />
@@ -52,6 +54,20 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 )
 
 const Public = () => <h3>Public</h3>
-const Protected = () => <div><LogoutButton/><h3>Protected</h3></div>
+const Protected = () => <div><LogoutButton/><h3>{auth.userEmail}</h3></div>
+const Navbar = () =>
+  <nav className="navbar navbar-default nav-palette-2">
+    <div className="container">
+      <div className="navbar-header">
+        <a className="navbar-brand nav-brand-palette-2" href="#">FilmStore</a>
+      </div>
+      <div className="collapse navbar-collapse">
+        <ul className="nav navbar-nav navbar-right">
+          <li>Logged in as {auth.userEmail}</li>
+          <li></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
 export default withCookies(App);
