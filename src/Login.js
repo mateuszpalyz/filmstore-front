@@ -18,11 +18,11 @@ class Login extends Component {
   constructor (props) {
     super(props);
 
+    this.state = {
+      redirectToReferrer: false,
+      incorrectLogin: false
+    }
     this.onSubmit = this.onSubmit.bind(this);
-  }
-
-  state = {
-    redirectToReferrer: false
   }
 
   onSubmit = (e) => {
@@ -30,10 +30,11 @@ class Login extends Component {
     auth.authenticate({
       email: this.email_input.value,
       password: this.password_input.value,
-      callback: (userToken) => {
+      onSuccess: (userToken) => {
         this.setState({ redirectToReferrer: true });
         this.props.cookies.set('userToken', userToken);
-      }
+      },
+      onError: () => { this.setState({ incorrectLogin: true }) }
     });
   }
 
@@ -41,7 +42,7 @@ class Login extends Component {
     if (auth.isAuthenticated()) { return <Redirect to='/' /> }
 
     const { from } = this.props.location.state || { from: { pathname: '/' } }
-    const { redirectToReferrer } = this.state
+    const { redirectToReferrer, incorrectLogin } = this.state
 
     if (redirectToReferrer) { return <Redirect to={from} /> }
 
@@ -50,6 +51,9 @@ class Login extends Component {
         <div className="panel panel-default form-container">
           <div className="panel-heading heading-palette-2">FilmStore</div>
           <div className="panel-body form-body">
+          {incorrectLogin ?
+            (<div class="alert alert-danger">Incorrect login or password.</div>) : ''
+          }
             <form onSubmit={this.onSubmit}>
               <div className="form-group">
                 <input
