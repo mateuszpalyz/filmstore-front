@@ -29,6 +29,10 @@
     font-size: 22px;
     font-weight: lighter; }
 
+.nav-user {
+  color: #fff;
+  line-height: 50px; }
+
 .btn-palette-1 {
   background-color: #65CC76;
   border-color: #65CC76;

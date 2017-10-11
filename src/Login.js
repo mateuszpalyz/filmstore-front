@@ -53,7 +53,7 @@ class Login extends Component {
           <div className="panel-heading heading-palette-2">FilmStore</div>
           <div className="panel-body form-body">
           {incorrectLogin ?
-            (<div class="alert alert-danger">Incorrect login or password.</div>) : ''
+            (<div className="alert alert-danger">Incorrect login or password.</div>) : ''
           }
             <form onSubmit={this.onSubmit}>
               <div className="form-group">

@@ -12,7 +12,6 @@ const auth = {
       password
     })
     .then((response) => {
-      console.log(response.data)
       this.userToken = response.data.token;
       this.userEmail = response.data.email;
       onSuccess(this.userToken, this.userEmail);
