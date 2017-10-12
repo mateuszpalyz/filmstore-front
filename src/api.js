@@ -13,6 +13,32 @@ const api = {
       url: url,
       headers: { 'Authorization': auth.userToken }
     });
+  },
+
+  postRates(filmId, value) {
+    const url = '/rates';
+    return axiosInstance({
+      method: 'post',
+      url: url,
+      headers: { 'Authorization': auth.userToken },
+      data: {
+        film_id: filmId,
+        value: value
+      }
+    });
+  },
+
+  putRates(filmId, value) {
+    const url = '/rates';
+    return axiosInstance({
+      method: 'put',
+      url: url,
+      headers: { 'Authorization': auth.userToken },
+      data: {
+        film_id: filmId,
+        value: value
+      }
+    });
   }
 };
 
