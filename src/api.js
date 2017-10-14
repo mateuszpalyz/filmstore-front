@@ -39,6 +39,16 @@ const api = {
         value: value
       }
     });
+  },
+
+  deleteRates(filmId) {
+    const url = '/rates';
+    return axiosInstance({
+      method: 'delete',
+      url: url,
+      headers: { 'Authorization': auth.userToken },
+      data: { film_id: filmId }
+    });
   }
 };
 

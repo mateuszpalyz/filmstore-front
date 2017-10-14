@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import StarRatingComponent from 'react-star-rating-component';
-import auth from './auth';
 import api from './api';
 import Navbar from './Navbar';
+import StarRatingComponent from './StarRatingComponent';
 
 class Protected extends Component {
   constructor(props) {
@@ -32,8 +31,10 @@ class Protected extends Component {
     if (prevValue == null) {
       api.postRates(name, nextValue);
     }
-    else if (prevValue != nextValue) {
+    else if (prevValue !== nextValue) {
       api.putRates(name, nextValue);
+    } else {
+      api.deleteRates(name);
     }
   }
 
