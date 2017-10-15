@@ -41,3 +41,7 @@
     background-color: #249F39;
     border-color: #249F39;
     color: #fff; }
+
+.panel-body {
+  height: 300px;
+  background-size: cover; }

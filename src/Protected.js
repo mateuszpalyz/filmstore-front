@@ -42,30 +42,35 @@ class Protected extends Component {
     const results = this.state.results || [];
     return (<div>
       <Navbar />
-      <div className="table">
-        { results.map(item =>
-          <div key={item.id}>
-            <div className="table-row">
-              <span>
-                {item.title}
-              </span>
-              <span>
-                {item.released_at}
-              </span>
-              <span>
-                {item.director_name}
-              </span>
-              <div>
-                <StarRatingComponent
-                    name={String(item.id)}
-                    starCount={5}
-                    value={item.rate}
-                    onStarClick={this.onStarClick}
-                />
+      <div className="container">
+        <div className="row">
+          <div className="col-md-6">
+            <div><h2>Your last ratings</h2></div>
+            { results.map(item =>
+              <div key={item.id}>
+                <div className="panel panel-default">
+                  <div className="panel-heading">
+                    <h3 className="panel-title">{item.title}</h3>
+                  </div>
+                  <div className="panel-body" style={{ backgroundImage: `url("${item.image_url}")` }}>
+                  </div>
+                  <div className="panel-footer">
+                    <p>Director: <strong>{item.director_name}</strong></p>
+                    <p>Released at: <strong>{item.released_at}</strong></p>
+                    <div>
+                      <StarRatingComponent
+                          name={String(item.id)}
+                          starCount={5}
+                          value={item.rate}
+                          onStarClick={this.onStarClick}
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
+            )}
           </div>
-        )}
+        </div>
       </div>
     </div>);
   }
