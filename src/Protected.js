@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import api from './api';
 import Navbar from './Navbar';
 import StarRatingComponent from './StarRatingComponent';
+import SearchFilms from './SearchFilms';
 
 class Protected extends Component {
   constructor(props) {
@@ -20,7 +21,7 @@ class Protected extends Component {
   }
 
   fetchFilms() {
-    api.getFilms().then((results) => {
+    api.getNewestFilms().then((results) => {
       this.setState({
         results: results.data
       });
@@ -45,7 +46,7 @@ class Protected extends Component {
       <div className="container">
         <div className="row">
           <div className="col-md-6">
-            <div><h2>Your last ratings</h2></div>
+            <div><h2>Newest Films</h2></div>
             { results.map(item =>
               <div key={item.id}>
                 <div className="panel panel-default">
@@ -69,6 +70,10 @@ class Protected extends Component {
                 </div>
               </div>
             )}
+          </div>
+          <div className="col-md-6">
+            <div><h2>Search for films</h2></div>
+            <SearchFilms />
           </div>
         </div>
       </div>

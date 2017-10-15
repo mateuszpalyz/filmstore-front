@@ -6,8 +6,17 @@ const axiosInstance = axios.create({
 });
 
 const api = {
-  getFilms() {
-    const url = '/films';
+  getFilms(searchTerm) {
+    const url = `/films?query=${searchTerm}`;
+    return axiosInstance({
+      method: 'get',
+      url: url,
+      headers: { 'Authorization': auth.userToken }
+    });
+  },
+
+  getNewestFilms() {
+    const url = '/newest_films';
     return axiosInstance({
       method: 'get',
       url: url,
